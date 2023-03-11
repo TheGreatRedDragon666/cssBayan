@@ -43,9 +43,9 @@ ol, ul {
     display: none;
 }
 
-
 .meme:checked ~ label .memeImage  {
     display: block;
+    animation: fade .7s;
 }
 
 .meme:checked ~ label {
@@ -59,6 +59,7 @@ ol, ul {
     object-fit: contain;
     height: 70vh;
     padding: 2vh 0 3vh 0;
+    transition: opacity 2s;
 }
 .memeWrapper {
     display: block;
@@ -72,29 +73,25 @@ ol, ul {
     flex-wrap: wrap;
     flex-direction: row;
     align-content: center;
+    align-items: center;
     justify-content: space-between;
-    align-items: flex-start;
     width: 100%;
     font-size: 4vh;
+    padding: .5vh 0 .5vh 0;
 }
 .arrow {
     display: inline-flex;
 }
-.headline {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50vw;
-    font-weight: normal;
-    font-size: 5vh;
+
+@keyframes fade {
+    from {opacity: 0}
+    to {opacity: 1}
 }
-.content {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50vw;
+@keyframes close {
+    from {opacity: 0}
+    to {opacity: 0.7}
 }
-@media (max-width: 320px) {
+
     .memeWrapper {
         width: 100vw;
     }
@@ -109,15 +106,15 @@ ol, ul {
         padding: 1vh 0 1vh 0;
         height: 50vh;
     }
-}
-@media (max-width: 820px) {
-    .memeWrapper {
+
+@media (min-width: 768px) {
+   /* .memeWrapper {
         width: 100vw;
     }
     .headline {
         width: 100vw;
         font-size: 4vh;
-    }
+    }*/
     .label {
         font-size: 3vh;
     }
@@ -127,11 +124,12 @@ ol, ul {
         margin: auto;
     }
 }
-@media (max-width: 1920px) {
+@media (min-width: 992px) {
     .content:hover label .arrow {
         display: inline-flex;
+        animation: fade 0.5s;
     }
-    .meme:hover label {
+    .content:hover label {
         cursor: pointer;
     }
     .meme:hover label .arrow{
@@ -142,19 +140,36 @@ ol, ul {
     }
     .meme:hover ~ label .memeImage  {
         display: block;
+        animation: fade .7s;
     }
     .meme:hover ~ label .x {
         display: inline-flex;
-        opacity: 0.75;
+        opacity: 0.7;
+        animation: close 0.5s;
     }
     .meme:checked ~ label .arrow {
         display: none;
     }
-    .meme:checked ~ label .x {
-        display: inline-flex;
-        opacity: 0.75;
-    }
     .content:hover label {
         color: black;
     }
+    .content {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+    }
+    .memeWrapper {
+        width: 50vw;
+    }
+    .headline {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+        font-weight: normal;
+        font-size: 5vh;
+        padding: .5vh 0 .5vh 0;
+    }
+
 }
