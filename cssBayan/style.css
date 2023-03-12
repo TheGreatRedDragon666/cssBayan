@@ -1,0 +1,181 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-family: "Comic Sans MS", serif;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    line-height: 1;
+}
+
+.meme_radio, .meme_image, .close_icon, .open_icon {
+    display: none;
+}
+
+.meme_radio:checked ~ label .meme_image {
+    display: block;
+    animation: fade .7s;
+}
+
+.meme_radio:checked ~ label {
+    color: blue;
+}
+
+.meme_image {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: contain;
+    padding: 1vh 0 1vh 0;
+    height: 70vh;
+}
+
+.meme_wrapper {
+    display: block;
+    width: 100vw;
+    border-top: darkgray solid;
+}
+
+.label {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 2vh;
+    padding: .5vh 0 .5vh 0;
+}
+
+.headline {
+    width: 100vw;
+    font-size: 3vh;
+    padding: .5vh 0 .5vh 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fadeInCloseIcon {
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 0.7
+    }
+}
+
+@media (min-width: 768px) {
+    .headline {
+        font-size: 4vh;
+    }
+
+    .label {
+        font-size: 3vh;
+    }
+
+    .meme_image {
+        padding: 1vh 0 1vh 0;
+        height: 80vh;
+        margin: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .content {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+    }
+
+    .meme_wrapper {
+        width: 50vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .headline {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+        font-weight: normal;
+        font-size: 5vh;
+    }
+
+    .meme_image {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        object-fit: contain;
+        height: 70vh;
+        padding: 2vh 0 3vh 0;
+    }
+    .label {
+        font-size: 4vh;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .content:hover .label .open_icon {
+        display: inline-flex;
+        animation: fadeIn 0.5s;
+    }
+
+    .content:hover .label {
+        cursor: pointer;
+    }
+
+    .meme_radio:hover .label .open_icon {
+        display: inline-flex;
+    }
+
+    .meme_radio:hover ~ .label .open_icon {
+        display: none;
+    }
+
+    .meme_radio:hover ~ .label .meme_image {
+        display: block;
+        animation: fadeIn 0.7s;
+    }
+
+    .meme_radio:hover ~ .label .close_icon {
+        display: inline-flex;
+        opacity: 0.7;
+        animation: fadeInCloseIcon 0.5s;
+    }
+
+    .meme_radio:checked ~ .label .open_icon {
+        display: none;
+    }
+
+    .content:hover .label {
+        color: black;
+    }
+}
