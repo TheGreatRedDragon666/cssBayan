@@ -125,6 +125,26 @@ ol, ul {
     }
 }
 @media (min-width: 992px) {
+    .content {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+    }
+    .memeWrapper {
+        width: 50vw;
+    }
+    .headline {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50vw;
+        font-weight: normal;
+        font-size: 5vh;
+        padding: .5vh 0 .5vh 0;
+    }
+}
+@media (hover: hover) and (pointer: fine) {
     .content:hover label .arrow {
         display: inline-flex;
         animation: fade 0.5s;
@@ -153,23 +173,4 @@ ol, ul {
     .content:hover label {
         color: black;
     }
-    .content {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50vw;
-    }
-    .memeWrapper {
-        width: 50vw;
-    }
-    .headline {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 50vw;
-        font-weight: normal;
-        font-size: 5vh;
-        padding: .5vh 0 .5vh 0;
-    }
-
 }
